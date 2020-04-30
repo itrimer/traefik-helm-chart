@@ -95,7 +95,7 @@ ports:
     # The exposed port for this service
     exposedPort: 9000
   web:
-    port: 8000
+    port: 80
     # hostPort: 8000
     expose: true
     exposedPort: 80
@@ -103,7 +103,7 @@ ports:
     # LoadBalancer
     # nodePort: 32080
   websecure:
-    port: 8443
+    port: 443
     # hostPort: 8443
     expose: true
     exposedPort: 443
