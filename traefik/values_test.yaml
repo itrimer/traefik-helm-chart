@@ -83,7 +83,7 @@ ports:
   traefik:
     port: 9000
     # Use hostPort if set.
-    # hostPort: 9000
+    hostPort: 9000
 
     # Defines whether the port is exposed if service.type is LoadBalancer or
     # NodePort.
@@ -91,7 +91,7 @@ ports:
     # You SHOULD NOT expose the traefik port on production deployments.
     # If you want to access it from outside of your cluster,
     # use `kubectl proxy` or create a secure ingress
-    expose: false
+    expose: true
     # The exposed port for this service
     exposedPort: 9000
   web:
@@ -110,7 +110,7 @@ ports:
     # nodePort: 32443
 
 # Options for the main traefik service, where the entrypoints traffic comes
-# from.
+# from.s
 service:
   enabled: true
   type: ClusterIP
