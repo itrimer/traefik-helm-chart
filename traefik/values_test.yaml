@@ -50,6 +50,8 @@ globalArguments:
   - "--log=true"
   - "--accesslog=true"
   - "--api=true"
+  - "--providers.kubernetesingress"
+  - "--providers.kubernetescrd"
 
 #
 # Configure Traefik static configuration
@@ -99,19 +101,13 @@ ports:
     exposedPort: 80
     # Use nodeport if set. This is useful if you have configured Traefik in a
     # LoadBalancer
-    nodePort: 80
+    # nodePort: 32080
   websecure:
     port: 8443
     # hostPort: 8443
     expose: true
     exposedPort: 443
-    nodePort: 443
-  websocks:
-    port: 7799
-    # hostPort: 8443
-    expose: true
-    exposedPort: 7799
-    nodePort: 7799
+    # nodePort: 32443
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.
@@ -191,5 +187,6 @@ affinity: {}
 #           values:
 #           - {{ template "traefik.name" . }}
 #       topologyKey: failure-domain.beta.kubernetes.io/zone
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/hostname: k8ss1
 tolerations: []
