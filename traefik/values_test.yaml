@@ -108,6 +108,12 @@ ports:
     expose: true
     exposedPort: 443
     # nodePort: 32443
+  socket-prod:
+    port: 7799
+    hostPort: 7799
+    expose: true
+    exposedPort: 7799
+    # nodePort: 32443
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.s
