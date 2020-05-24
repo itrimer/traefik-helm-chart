@@ -32,14 +32,14 @@ rollingUpdate:
 # Add volumes to the traefik pod.
 # This can be used to mount a cert pair or a configmap that holds a config.toml file.
 # After the volume has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:
-# additionalArguments:
-# - "--providers.file.filename=/config/dynamic.toml"
-# - "--tls.certificates.certFile=/certs/tls.crt"
-# - "--tls.certificates.keyFile=/certs/tls.key"
-volumes: []
-# - name: public-cert
-#   mountPath: "/certs"
-#   type: secret
+additionalArguments:
+#  - "--providers.file.filename=/certs/dynamic.toml"
+  - "--tls.certificates.certFile=/certs/3935361__sanyangma.com_public.crt"
+  - "--tls.certificates.keyFile=/certs/3935361__sanyangma.com.key"
+volumes: 
+ - name: traefik-cert
+   mountPath: "/certs"
+   type: secret
 # - name: configs
 #   mountPath: "/config"
 #   type: configMap
@@ -95,31 +95,31 @@ ports:
     # The exposed port for this service
     exposedPort: 9000
   web:
-    port: 80
-    hostPort: 80
+    port: 8095
+    hostPort: 8095
     expose: true
-    exposedPort: 80
+    exposedPort: 8095
     # Use nodeport if set. This is useful if you have configured Traefik in a
     # LoadBalancer
     # nodePort: 32080
   websecure:
-    port: 443
-    hostPort: 443
+    port: 495
+    hostPort: 495
     expose: true
-    exposedPort: 443
+    exposedPort: 495
     # nodePort: 32443
   socket-prod:
-    port: 7799
-    hostPort: 7799
+    port: 7788
+    hostPort: 7788
     expose: true
-    exposedPort: 7799
+    exposedPort: 7788
     # nodePort: 32443
   emqx:
     port: 1883
     hostPort: 1883
     expose: true
     exposedPort: 1883
-    # nodePort: 32443
+
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.s
