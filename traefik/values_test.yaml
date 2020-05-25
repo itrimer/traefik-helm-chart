@@ -36,9 +36,9 @@ additionalArguments:
 #  - "--providers.file.filename=/certs/dynamic.toml"
 #  - "--tls.certificates.certFile=/certs/3935361__sanyangma.com_public.crt"
 #  - "--tls.certificates.keyFile=/certs/3935361__sanyangma.com.key"
-  - "--entryPoints.websecure.tls.certificates.certFile=/certs/3935361__sanyangma.com_public.crt"
+  - "--entryPoints.websecure.tls.certificates.certFile=/certs/3935361__sanyangma.com_chain.crt"
   - "--entryPoints.websecure.tls.certificates.keyFile=/certs/3935361__sanyangma.com.key"
-volumes: 
+volumes:
  - name: traefik-cert
    mountPath: "/certs"
    type: secret
