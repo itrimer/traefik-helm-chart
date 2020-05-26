@@ -105,10 +105,10 @@ ports:
     # LoadBalancer
     # nodePort: 32080
   websecure:
-    port: 495
-    hostPort: 495
+    port: 496
+    hostPort: 496
     expose: true
-    exposedPort: 495
+    exposedPort: 496
     # nodePort: 32443
   socket-prod:
     port: 7788
